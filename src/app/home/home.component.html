@@ -10,11 +10,24 @@
                 </li>
             </ul>
         </div>
-        <div class="card-body">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
-            incidunt aliquid ab voluptas praesentium eum sint quos,
-            consectetur rem qui dolor!
-            Ipsum tempore deleniti hic ducimus? Alias assumenda libero vel.
-        </div>
     </div>
+    <div *ngIf="!articles" class="spinner-border text-secondary" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+    <div *ngFor="let article of articles">
+        <div class="card feed shadow p-3 mb-3">
+                <!-- <img src="article.social_image" class="card-img-top" alt="..."> -->
+                <div class="card-body">
+                    <span>{{article.user.name}} </span><br>
+                    <span>{{article.readable_publish_date}}</span>
+                    <h5 class="card-title">{{article.title}}</h5>
+                    <p class="card-text">{{article.description}}</p>
+                    <h6 *ngFor="let tag of article.tag_list">
+                        #{{tag}}
+                    </h6>
+                </div>
+        </div>
+        
+    </div>
+
 </div>

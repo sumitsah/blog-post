@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
+import { mergeMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  articles: any;
 
-  ngOnInit(): void {
+  constructor(private apiService: ApiService) { 
+  
+  }
+
+  ngOnInit() {
+    this.apiService.getArticles()
+      .subscribe( articles => {
+        this.articles = articles;
+        console.log(articles);
+      });
   }
 
 }
