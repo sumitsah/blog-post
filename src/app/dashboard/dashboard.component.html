@@ -1,0 +1,25 @@
+<div class="container outer shadow p-3 mb-5 rounded">
+  <h3>REGISTRATION </h3>
+  <hr>
+<form  [formGroup]="authForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="form-name">Name:</label>
+      <input id="form-name" class="form-control" formControlName="name" placeholder="Username" type="text"/>
+    </div>
+    <div class="form-group">
+      <label for="form-email">Email:</label>
+      <input id="form-email" class="form-control" formControlName="email" placeholder="Email" type="text" />
+    </div>
+    <div class="form-group">
+      <label for="form-password">Password:</label>
+      <input id="form-password" class="form-control" formControlName="password" placeholder="Password" type="password"/>
+    </div>
+    <div class="form-group">
+      <label for="form-confirm-password">Confirm Password:</label>
+      <input id="form-confirm-password" class="form-control" formControlName="confirmPassword" placeholder="Password" type="password"/>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary" type="submit">Sign up</button>
+    </div>
+</form>
+</div>
