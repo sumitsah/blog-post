@@ -18,7 +18,7 @@ export class ApiService {
 
 
   getArticles():Observable<any>{
-    return this._http.get("https://cors-anywhere.herokuapp.com/http://dev.to/api/articles?per_page=10")
+    return this._http.get("https://cors-anywhere.herokuapp.com/http://dev.to/api/articles?per_page=20")
               .pipe(catchError(this.formatErrors));
   }
 

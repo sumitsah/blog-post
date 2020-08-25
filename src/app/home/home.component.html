@@ -14,7 +14,7 @@
     <div *ngIf="!articles" class="spinner-border text-secondary" role="status">
         <span class="sr-only">Loading...</span>
     </div>
-    <div *ngFor="let article of articles">
+    <div *ngFor="let article of articles | paginate: { itemsPerPage: 5, currentPage: p }">
         <div class="card feed shadow p-3 mb-3">
                 <!-- <img src="article.social_image" class="card-img-top" alt="..."> -->
                 <div class="card-body">
@@ -29,5 +29,8 @@
         </div>
         
     </div>
+
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+ 
 
 </div>

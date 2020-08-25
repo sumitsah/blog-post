@@ -10,7 +10,7 @@ import { mergeMap } from 'rxjs/operators';
 export class HomeComponent implements OnInit {
 
   articles: any;
-
+  p: number = 1;
   constructor(private apiService: ApiService) { 
   
   }

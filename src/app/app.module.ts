@@ -9,6 +9,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 import { LayoutComponent } from './layout/layout.component';
 import { HomeComponent } from './home/home.component';
+import {NgxPaginationModule} from 'ngx-pagination'; 
  
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HomeComponent } from './home/home.component';
     HomeComponent
   ],
   imports: [
-    BrowserModule, FormsModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule
+    BrowserModule, FormsModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule,
+    NgxPaginationModule
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
