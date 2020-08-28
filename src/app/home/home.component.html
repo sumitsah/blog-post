@@ -3,10 +3,14 @@
         <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
-                <a class="nav-link" href="#">Your Feed</a>
+                 <a class="nav-link" 
+                 [ngClass]="{'active': listConfig.type === 'feed'}"
+                 (click)="setListTo('feed')">Your Feed</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Global Feed</a>
+                 <a class="nav-link" 
+                 [ngClass]="{'active': listConfig.type === 'all'}" 
+                 (click)="setListTo('all')">Global Feed</a>
                 </li>
             </ul>
         </div>
@@ -14,15 +18,15 @@
     <div *ngIf="!articles" class="spinner-border text-secondary" role="status">
         <span class="sr-only">Loading...</span>
     </div>
-    <div *ngFor="let article of articles | paginate: { itemsPerPage: 5, currentPage: p }">
+    <div *ngFor="let article of articles | paginate: { itemsPerPage: 5, currentPage: p } let i=index; ">
         <div class="card feed shadow p-3 mb-3">
-                <!-- <img src="article.social_image" class="card-img-top" alt="..."> -->
+                <img *ngIf="!isImageLoading"  [src]="imageToShow[i]" class="card-img-top">
                 <div class="card-body">
-                    <span>{{article.user.name}} </span><br>
-                    <span>{{article.readable_publish_date}}</span>
+                    <span>{{article.userName}} </span><br>
+                    <span>{{article.publishDate}}</span>
                     <h5 class="card-title">{{article.title}}</h5>
                     <p class="card-text">{{article.description}}</p>
-                    <h6 *ngFor="let tag of article.tag_list">
+                    <h6 *ngFor="let tag of article.tagList">
                         #{{tag}}
                     </h6>
                 </div>

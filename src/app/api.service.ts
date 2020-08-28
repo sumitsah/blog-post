@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +22,9 @@ export class ApiService {
               .pipe(catchError(this.formatErrors));
   }
 
-  getImages(url):Observable<any>{
-    return this._http.get(url)
-              .pipe(catchError(this.formatErrors));
+  getImages(url):Observable<Blob>{
+    let headers= { responseType: Blob };
+    return this._http.get('https://cors-anywhere.herokuapp.com/'+url, { responseType: 'blob' })
+             .pipe(catchError(this.formatErrors));
   }
 }
