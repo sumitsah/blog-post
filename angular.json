@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/auth",
+            "outputPath": "dist/blog-post",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "auth:build"
+            "browserTarget": "blog-post:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "auth:build:production"
+              "browserTarget": "blog-post:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "auth:build"
+            "browserTarget": "blog-post:build"
           }
         },
         "test": {
@@ -115,15 +115,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "auth:serve"
+            "devServerTarget": "blog-post:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "auth:serve:production"
+              "devServerTarget": "blog-post:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "auth"
+  "defaultProject": "blog-post"
 }
