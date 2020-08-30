@@ -5,7 +5,7 @@
   "deploy": "gh-pages -d dist"
   },
   "private": true,
-  "homepage": "https://sumitsah.github.io/auth/",
+  "homepage": "https://github.com/sumitsah/auth/",
   "dependencies": {
     "@angular/animations": "~9.1.1",
     "@angular/common": "~9.1.1",
