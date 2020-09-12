@@ -1,0 +1,22 @@
+.outer{
+  border: 1px solid #c5c1c1;
+  margin-top: 80px;
+  max-width: 40%;
+  background-color: rgba(203, 197, 204, 0.171);
+  border-radius: 5px;
+}
+
+form{
+  padding: 0 30px;
+}
+
+@media(max-width: 600px){
+  form{
+    padding: 0;
+  }
+
+  .outer{
+    max-width: 30%;
+    margin-top: 180px;
+  }
+}
