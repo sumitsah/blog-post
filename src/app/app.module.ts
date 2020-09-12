@@ -10,17 +10,20 @@ import { InMemoryDataService }  from './in-memory-data.service';
 import { LayoutComponent } from './layout/layout.component';
 import { HomeComponent } from './home/home.component';
 import {NgxPaginationModule} from 'ngx-pagination'; 
+import { ScrollingModule} from '@angular/cdk/scrolling';
+import { FactScrollerComponent } from './fact-scroller/fact-scroller.component';
  
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     LayoutComponent,
-    HomeComponent
+    HomeComponent,
+    FactScrollerComponent
   ],
   imports: [
     BrowserModule, FormsModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule, ScrollingModule
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
