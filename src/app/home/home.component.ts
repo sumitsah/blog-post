@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
-import { mergeMap, delay, map, tap, pluck, filter } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { ArticleListConfig } from '../models/article-list-config.model';
 import { Router } from '@angular/router';
-import { of } from 'rxjs';
 
 @Component({
   selector: 'app-home',
