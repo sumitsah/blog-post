@@ -44,6 +44,5 @@ export class LocalStorageService {
   destroyUser() {
     localStorage.removeItem['loggedInUser'];
     window.localStorage.clear();
-    console.log(localStorage['loggedInUser'])
   }
 }

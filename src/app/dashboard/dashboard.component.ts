@@ -27,7 +27,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.url.subscribe(urlSegment => {
-      console.log(urlSegment);
       this.authType = urlSegment[urlSegment.length - 1].path;
       this.title = (this.authType === 'login') ? 'Sign in' : 'Sign up';
       if (this.authType === 'register') {

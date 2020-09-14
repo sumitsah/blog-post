@@ -18,14 +18,17 @@ export class LayoutComponent implements OnInit {
     this.authService.currentUser.subscribe(
       (userData) => {
         this.currentUser = userData;
-        console.log(this.currentUser);
+      //  console.log(this.currentUser);
       }
     );
   }
 
   logout() {
-    this.authService.purgeAuth();
-    this.router.navigateByUrl('/login');
+    this.authService.doLogout()
+      .then( () => {
+        this.authService.purgeAuth();
+        this.router.navigateByUrl('/login');
+      }).catch(err => console.log(err));
   }
 
 }

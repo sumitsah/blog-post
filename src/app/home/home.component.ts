@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
 
   setListTo(type: string){
     if(type === 'feed'){
-      this.router.navigateByUrl('/registration');
+      this.router.navigateByUrl('/register');
       return; 
     }
     this.listConfig = {type: type};

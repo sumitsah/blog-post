@@ -36,7 +36,7 @@ export class AuthService {
     if (this.localStrorage.getUser()) {
       this.setAuth(this.localStrorage.getUser());
     } else {
-      console.log('No user Found!');
+      this.purgeAuth();
     }
   }
   doRegister(value) {
@@ -48,14 +48,23 @@ export class AuthService {
     })
   }
 
-  doLogin(value) {
+  doLogin(value): Promise<any> {
     return new Promise<any>((resolve, reject) => {
       firebase.auth().signInWithEmailAndPassword(value.email, value.password)
         .then(res => {
           resolve(res);
-          console.log(res.user.email.split('@')[0]);
           this.setAuth(res.user.email.split('@')[0]);
         }, err => reject(err));
     })
   }
+
+  doLogout() {
+    return new Promise<any>((resolve, reject) => {
+      firebase.auth().signOut()
+        .then(res => {
+          resolve(res)
+        }, err => reject(err));
+    });
+  }
+
 }
