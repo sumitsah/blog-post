@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
                   this.apiService.getImages(art.image)
                     .subscribe( images => {
                       this.images = images; 
-                      console.log(this.images);
+                      // console.log(this.images);
                       this.articles = this.artObj;
                       this.createImageFromBlob(images);          
                     })                

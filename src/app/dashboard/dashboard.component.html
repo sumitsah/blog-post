@@ -1,8 +1,12 @@
 <div class="container outer shadow p-3 mb-5 rounded">
-  <h3>SIGN UP</h3>
+  <div class="text-center">
+    <h3>{{ title | uppercase }}</h3>
+    <a [routerLink]="['/login']" *ngIf="authType == 'register'">Have an account?</a>
+    <a [routerLink]="['/register']" *ngIf="authType == 'login'">Need an account?</a>
+  </div>
   <hr>
-<form  [formGroup]="authForm" class="needs-validation" novalidate>
-    <div class="form-group col-sm-12">
+  <form [formGroup]="authForm" class="needs-validation" novalidate>
+    <div *ngIf="authType === 'register'" class="form-group col-sm-12">
       <label for="name">Name:</label>
       <input id="name" class="form-control" formControlName="name" placeholder="Username" type="text" required>
       <div *ngIf="name.errors && name.errors.minlength"> Name must be at least 4 characters long. </div>
@@ -13,14 +17,16 @@
     </div>
     <div class="form-group col-sm-12">
       <label for="form-password">Password:</label>
-      <input id="form-password" class="form-control is-invalid" formControlName="password" placeholder="Password" type="password">
+      <input id="form-password" class="form-control" formControlName="password" placeholder="Password" type="password">
     </div>
-    <div class="form-group col-sm-12">
+    <div *ngIf="authType === 'register'" class="form-group col-sm-12">
       <label for="form-confirm-password">Confirm Password:</label>
-      <input id="form-confirm-password" class="form-control" formControlName="confirmPassword" placeholder="Password" type="password">
+      <input id="form-confirm-password" class="form-control" formControlName="confirmPassword" placeholder="Password"
+        type="password">
     </div>
     <div class="form-group col-sm-12">
-      <button class="btn btn-primary" (click)="onSubmit()" type="submit" [disabled]="!authForm.valid">Sign up</button>
+      <button class="btn btn-primary" (click)="onSubmit()" type="submit"
+        [disabled]="!authForm.valid">{{ title | uppercase }}</button>
     </div>
-</form>
+  </form>
 </div>
